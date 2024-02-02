@@ -21,6 +21,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Output topic must contain messages with:
   - **Key**: name of the city, example _Rome_
   - **Value**: _avg/max/min_ temperature, example _16/38/4_
+- Broker will listen on port 9092, 9093 and 9094. No Authentication, so SSL
 - Implement a solution with _kstreams, flink, ksql, ..._ reading input data from _measurements_ topic and sink result to _results_ topics. and **run it!**
 - EOS is required (we want a valid aggregation result !)
 - Ingest data into a kafka topic:
