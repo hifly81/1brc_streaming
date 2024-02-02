@@ -19,10 +19,10 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Topic with _32 partitions_, _replication factor 3_ named _results_ for output
 - Kafka cluster must run using the script _bootstrap.sh_ from this repository. bootstrap will also create input and output topics.
 - Output topic must contain messages with:
-  - **Key**: name of the city, example _Rome_
-  - **Value**: _avg/max/min_ temperature, example _16/38/4_
+  - **Key**: name of the city, example _Rome_ - format: _String_
+  - **Value**: _avg/max/min_ temperature, example _16/38/4_ - format _String_
 - Brokers will listen on port 9092, 9093 and 9094. No Authentication, so SSL
-- Implement a solution with _kstreams, flink, ksql, whatever, ..._ reading input data from _measurements_ topic and sink result to _results_ topics. and **run it!**
+- Implement a solution with _kstreams, flink, ksql, whatever, ..._ reading input data from _measurements_ topic and sink result to _results_ topics. and **run it!**. This is not limited to JAVA!
 - EOS is required (we want a valid aggregation result !)
 - Ingest data into a kafka topic:
     - create the csv file with script _create_measurements.sh_ from this repository. Reserve approximately 15GB for it
