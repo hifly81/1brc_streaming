@@ -35,8 +35,9 @@ https://www.morling.dev/blog/one-billion-row-challenge/
  - Run script _create_measurements.sh_
  - Run script _producer.sh_ in a new terminal
  - wait till _verification.sh_ will provide final results. See in output log "SIMULATION ENDED."
+ - Clean up, run script _tear-down.sh_
 
-## How to smash the challenge
+## How to participate in the challenge
 
 - Fork this repo
 - Add your solution to folder _challenge-YOURNAME_, example _challenge-hifly_
