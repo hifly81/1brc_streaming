@@ -9,6 +9,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 
 - docker engine and docker compose
 - about 30GB free space
+- homebrew to install https://jrnd.io
 
 
 ## Rules
@@ -23,7 +24,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Implement a solution with _kstreams, flink, ksql, ..._ reading input data from _measurements_ topic and sink result to _results_ topics. and **run it!**
 - EOS is required (we want a valid aggregation result !)
 - Ingest data into a kafka topic:
-    - create the input file csv file with script _create_measurements.sh_ from this repository. Reserve approximately 15GB for it
+    - create the csv file with script _create_measurements.sh_ from this repository. Reserve approximately 15GB for it
     - read from the input file AND send continuously data to _measurements_ topic using the script _producer.sh_ from this repository
 - Validate results using consumer application and run script _verification.sh_ from this repository. Result being driven by difference between timestamp of the first/last produced message in the input and validation timestamp of the final consumer.
 
