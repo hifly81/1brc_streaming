@@ -23,20 +23,17 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Implement a solution with _kstreams, flink, ksql, ..._ reading input data from _measurements_ topic and sink result to _results_ topics. and **run it!**
 - EOS is required (we want a valid aggregation result !)
 - Ingest data into a kafka topic:
-    - create the input file csv file. You can use [jr](https://github.com/ugol/jr) tool to do this very easily. Reserve approximately 15GB for it [1]
-    - read from the input file AND send continuously data to _measurements_ topic _([kcat](https://github.com/edenhill/kcat), [jr](https://github.com/ugol/jr) or any other tools)_
+    - create the input file csv file with script _create_measurements.sh_ from this repository. Reserve approximately 15GB for it
+    - read from the input file AND send continuously data to _measurements_ topic using the script _producer.sh_ from this repository
 - Validate results using consumer application and run script _verification.sh_ from this repository. Result being driven by difference between timestamp of the first/last produced message in the input and validation timestamp of the final consumer.
-
-[1]
-```bash
-$ echo -e "city;temperature" > measurements.csv && jr template run -n 1_000_000_000 --embedded '{{city}};{{format_float "%.1f" (floating 40 5)}}' >> measurements.csv
-```
 
 ## How to test the challenge
 
  - Run script _bootstrap.sh_
- - Deploy your solution
- - Run script _verification.sh_
+ - Deploy your solution and run it.
+ - Run script _verification.sh_ in a new terminal
+ - Run script _create_measurements.sh_
+ - Run script _producer.sh_ in a new terminal
  - wait till _verification.sh_ will provide final results. See in output log "SIMULATION ENDED."
 
 ## How to smash the challenge
