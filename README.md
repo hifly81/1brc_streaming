@@ -42,5 +42,5 @@ $ echo -e "city;temperature" > measurements.csv && jr template run -n 1_000_000_
 ## How to smash the challenge
 
 - Fork this repo
-- Add your solution to folder _challenge_
-- Open a Pull Request detailing your solution
+- Add your solution to folder _challenge-<YOURNAME>_, example _challenge-hifly_
+- Open a Pull Request detailing your solution with instructions on how to deploy it
