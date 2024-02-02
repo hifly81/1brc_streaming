@@ -7,6 +7,9 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 
 ## Pre requirements
 
+- docker engine and docker compose
+- about 30GB free space
+
 
 ## Rules
 
