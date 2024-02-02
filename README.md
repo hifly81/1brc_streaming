@@ -26,7 +26,15 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 $ echo -e "city;temperature" > measurements.csv && jr template run -n 1_000_000_000 --embedded '{{city}};{{format_float "%.1f" (floating 40 5)}}' >> measurements.csv
 ```
 
+## How to test the challenge
+
+ - Run script _bootstrap.sh_
+ - Deploy your solution
+ - Run script _verification.sh_
+ - wait till _verification.sh_ will provide final results. See in output log "SIMULATION ENDED."
+
 ## How to smash the challenge
 
-**TODO**
-
+- Fork this repo
+- Add your solution to folder _challenge_
+- Open a Pull Request detailing your solution
