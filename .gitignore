@@ -43,6 +43,3 @@ README.html
 release/
 
 .DS_Store
-
-bootstrap.sh
-tear-down.sh
