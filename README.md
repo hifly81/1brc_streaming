@@ -14,6 +14,9 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Topic with _32 partitions_, _replication factor 3_ and _LogAppendTime_ named _measurements_ for input
 - Topic with _32 partitions_, _replication factor 3_ named _results_ for output
 - Kafka cluster must run using the script _bootstrap.sh_ from this repository. bootstrap will also create input and output topics.
+- Output topic must contain messages with:
+  - **Key**: name of the city, example _Rome_
+  - **Value**: _avg/max/min_ temperature, example _16/38/4_
 - Implement a solution with _kstreams, flink, ksql, ..._ reading input data from _measurements_ topic and sink result to _results_ topics. and **run it!**
 - EOS is required (we want a valid aggregation result !)
 - Ingest data into a kafka topic:
