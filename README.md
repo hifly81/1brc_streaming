@@ -27,7 +27,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Ingest data into a kafka topic:
     - create csv file with script _create_measurements.sh_ from this repository. Reserve approximately 15GB for it
     - read from the input file AND send continuously data to _measurements_ topic using the script _producer.sh_ from this repository
-- Validate results using consumer application and run script _verification.sh_ from this repository. Result being driven by difference between timestamp of the first/last produced message in the input and validation timestamp of the final consumer.
+- Validate results with script _verification.sh_ from this repository. Result being driven by difference between timestamp of the first/last produced message in the input and validation timestamp of the final consumer.
 
 💡 Kafka Cluster runs [cp-kafka](https://hub.docker.com/r/confluentinc/cp-kafka), Official Confluent Docker Image for Kafka (Community Version) version 7.5.3, shipping Apache Kafka version 3.5.x
 
