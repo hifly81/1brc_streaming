@@ -1,4 +1,4 @@
-# 1brc challenge with kafka streaming solutions
+# 1brc challenge with streaming solutions for Apache Kafka
 
 Inspired by original 1brc challenge:
 https://www.morling.dev/blog/one-billion-row-challenge/
