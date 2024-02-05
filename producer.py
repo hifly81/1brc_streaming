@@ -7,8 +7,8 @@ def chunk(bootstrap_servers, topic, csv_file_path):
     counter = 0
     for chunk in pd.read_csv(csv_file_path, chunksize=chunksize):
         for _, row in chunk.iterrows():
-            print(f"Chunk {counter} - Row '{row.name}' sent'")
-            producer.produce(topic, key=str(row.name), value=str(row))
+            print(f"Chunk {counter} - Row '{row.name} - key:{row[0]} value:{row[1]}' sent'")
+            producer.produce(topic, key=str(row[0]), value=str(row[1]))
         counter = counter +1
         producer.flush()
 
