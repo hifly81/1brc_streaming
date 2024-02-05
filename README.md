@@ -46,18 +46,18 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 
 ## How to test the challenge
 
- - Run script _create_measurements.sh_ to create 1B csv file
- - Run script _bootstrap.sh_ to setup a Kafka clusters and required topics.
- - Deploy your solution and run it, publishing data to _results_ topic. 
- - Run script _verification.sh_ in a new terminal
- - Run script _producer.sh_ in a new terminal. Producer will read from input file and publish to _measurements_ topic.
- - wait till _verification.sh_ will provide final results. See in output log "SIMULATION ENDED."
- - Clean up, run script _tear-down.sh_
+1. Run script _create_measurements.sh_ to create 1B csv file
+2. Run script _bootstrap.sh_ to setup a Kafka clusters and required topics. 
+3. Deploy your solution and run it, publishing data to _results_ topic. 
+4. Run script _verification.sh_ in a new terminal 
+5. Run script _producer.sh_ in a new terminal. Producer will read from input file and publish to _measurements_ topic. 
+6. wait till _verification.sh_ will provide final results. See in output log _"SIMULATION ENDED."_
+7. Clean up, run script _tear-down.sh_
 
 ## How to participate in the challenge
 
-- Fork this repo
-- Add your solution to folder _challenge-YOURNAME_, example _challenge-hifly_
-- Open a Pull Request detailing your solution with instructions on how to deploy it
+1. Fork this repo
+2. Add your solution to folder _challenge-YOURNAME_, example _challenge-hifly_
+3. Open a Pull Request detailing your solution with instructions on how to deploy it
 
 ✅ Your solution will be tested using the same _docker-compose_ file. Results will be published on this page.
