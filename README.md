@@ -55,10 +55,10 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 
 ## How to test the challenge
 
+ - Run script _create_measurements.sh_ to create 1B csv file
  - Run script _bootstrap.sh_ to setup a Kafka clusters and required topics.
  - Deploy your solution and run it, publishing data to _results_ topic. 
  - Run script _verification.sh_ in a new terminal
- - Run script _create_measurements.sh_ to create 1B csv file
  - Run script _producer.sh_ in a new terminal. Producer will read from input file and publish to _measurements_ topic.
  - wait till _verification.sh_ will provide final results. See in output log "SIMULATION ENDED."
  - Clean up, run script _tear-down.sh_
