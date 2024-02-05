@@ -9,12 +9,18 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 
-echo -e "going to install jr --> https://jrnd.io"
-if [ "$machine" == "Mac" ]; then
-    brew install jr
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    sudo snap install jrnd
-    sudo snap alias jrnd.jr jr
+# check if jr is installed otherwise install it
+if [ -x "$(command -v jr)" ]; then
+    echo -e "jr is installed"
+else
+    echo -e "jr is not installed"
+    echo -e "going to install jr --> https://jrnd.io"
+    if [ "$machine" == "Mac" ]; then
+        brew install jr
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        sudo snap install jrnd
+        sudo snap alias jrnd.jr jr
+    fi
 fi
 
 echo -e "generating a measurements.csv with 1B rows in current folder. this operation will take time... [!!! BE AWARE file final size will be > 10GB !!!]"
