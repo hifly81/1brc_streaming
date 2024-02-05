@@ -9,7 +9,8 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 
 - docker engine and docker compose
 - about 30GB free space
-- homebrew (Mac) or snap (Linux) to install [jr](https://jrnd.io)
+- homebrew (Mac) or snap (Linux) to install [jr](https://jrnd.io). Needed in script _create_measurements.sh_.
+- python3. Needed in script _producer.sh_.
 
 
 ## Rules
