@@ -1,4 +1,4 @@
-# 1brc challenge with kafka streaming solutions
+# 1brc challenge with streaming solutions for Apache Kafka
 
 Inspired by original 1brc challenge:
 https://www.morling.dev/blog/one-billion-row-challenge/
@@ -19,7 +19,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Topic with _32 partitions_, _replication factor 3_ named _results_ for output
 - Kafka cluster must run using the script _bootstrap.sh_ from this repository. bootstrap will also create input and output topics.
 - Brokers will listen on port 9092, 9093 and 9094. No Authentication, so SSL
-- Implement a solution with _kstreams, flink, ksql, whatever, ..._ reading input data from _measurements_ topic and sink result to _results_ topics. and **run it!**. This is not limited to JAVA!
+- ✴️ Implement a solution with _kafka APIs, kafka streams, flink, ksql, spark, NiFi, camel-kafka, spring-kafka..._ reading input data from _measurements_ topic and sink results to _results_ topics. and **run it!**. This is not limited to JAVA!
 - EOS is required (we want a valid aggregation result !)
 - Ingest data into a kafka topic:
     - Create csv file with script _create_measurements.sh_ from this repository. Reserve approximately 15GB for it. This will take minutes to end.
@@ -47,6 +47,9 @@ https://www.morling.dev/blog/one-billion-row-challenge/
   - **Key**: name of the city, example _Rome_ - format: _String_
   - **Value**: _avg/max/min_ temperature, example _16/38/4_ - format _String_
 - Validate results using consumer application and run script _verification.sh_ from this repository. Result being driven by difference between timestamp of the first/last produced message in the input and validation timestamp of the final consumer.
+
+💡 Kafka Cluster runs [cp-kafka](https://hub.docker.com/r/confluentinc/cp-kafka), Official Confluent Docker Image for Kafka (Community Version) version 7.5.3, shipping Apache Kafka version 3.5.x
+
 
 ## How to test the challenge
 
