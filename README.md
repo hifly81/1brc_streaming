@@ -18,7 +18,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Topic with _32 partitions_, _replication factor 3_ and _LogAppendTime_ named _measurements_ for input
 - Topic with _32 partitions_, _replication factor 3_ named _results_ for output
 - Kafka cluster must run using the script _bootstrap.sh_ from this repository. bootstrap will also create input and output topics.
-- Brokers will listen on port 9092, 9093 and 9094. No Authentication, so SSL
+- Brokers will listen on port 9092, 9093 and 9094. No Authentication, no SSL.
 - ✴️ Implement a solution with _kafka APIs, kafka streams, flink, ksql, spark, NiFi, camel-kafka, spring-kafka..._ reading input data from _measurements_ topic and sink results to _results_ topics. and **run it!**. This is not limited to JAVA!
 - EOS is required (we want a valid aggregation result !)
 - Ingest data into a kafka topic:
