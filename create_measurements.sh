@@ -17,9 +17,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     sudo snap alias jrnd.jr jr
 fi
 
-
-brew install jr
-
 echo -e "generating a measurements.csv with 1B rows in current folder. this operation will take time... [!!! BE AWARE file final size will be > 10GB !!!]"
 
 for i in {1..10}
