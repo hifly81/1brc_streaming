@@ -35,8 +35,6 @@ for pid in "${pids[@]}"; do
   wait $pid
 done
 
-echo -e "city;temperature" > measurements.csv
-
 for i in {1..10}
 do
   cat measurements${i}.csv >> measurements.csv

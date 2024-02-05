@@ -21,7 +21,6 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Kafka cluster must run using the script _bootstrap.sh_ from this repository. bootstrap will also create input and output topics.
 - Brokers will listen on port 9092, 9093 and 9094. No Authentication, no SSL.
 - ✴️ Implement a solution with _kafka APIs, kafka streams, flink, ksql, spark, NiFi, camel-kafka, spring-kafka..._ reading input data from _measurements_ topic and sink results to _results_ topics. and **run it!**. ⚠️ This is not limited to JAVA!
-- EOS is required (we want a valid aggregation result !)
 - Ingest data into a kafka topic:
     - Create csv file with script _create_measurements.sh_ from this repository. Reserve approximately 14GB for it. ⚠️ This will take minutes to end.
     -  Each row is one measurement in the format _<string: station name>;<double: measurement>_, with the measurement value having exactly one fractional digit.
