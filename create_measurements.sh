@@ -1,45 +1,17 @@
 #!/bin/bash
 
-unameOut="$(uname -s)"
-case "${unameOut}" in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    CYGWIN*)    machine=Cygwin;;
-    MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN:${unameOut}"
-esac
-
-# check if jr is installed otherwise install it
-if [ -x "$(command -v jr)" ]; then
-    echo -e "jr is installed"
+if command -v python3 &> /dev/null ; then
+    echo "Python 3 is installed."
 else
-    echo -e "jr is not installed"
-    echo -e "going to install jr --> https://jrnd.io"
-    if [ "$machine" == "Mac" ]; then
-        brew install jr
-    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-        sudo snap install jrnd
-        sudo snap alias jrnd.jr jr
-    fi
+    echo "Python 3 is not installed. Please install Python 3 to run this script."
+    exit -1
 fi
+
+pip3 install csv
+pip3 install random
 
 echo -e "generating a measurements.csv with 1B rows in current folder. this operation will take time... [!!! BE AWARE file final size will be > 10GB !!!]"
 
-for i in {1..10}
-do
-  jr template run -n 100000000 --seed ${i} --embedded '{{city}};{{format_float "%.1f" (floating 40 5)}}' >> measurements${i}.csv &
-  pids+=($!)
-done
-
-for pid in "${pids[@]}"; do
-  wait $pid
-done
-
-for i in {1..10}
-do
-  cat measurements${i}.csv >> measurements.csv
-  rm measurements${i}.csv
-done
-
+python3 measurements.py
 
 echo -e "measurements.csv with 1B rows CREATED in current folder."
