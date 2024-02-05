@@ -1,16 +1,14 @@
 import pandas as pd
 from confluent_kafka import Producer
 
-# Function to read data from CSV file
 def read_csv(file_path):
     return pd.read_csv(file_path)
 
-# Function to send data to Kafka topic
 def send_to_kafka(bootstrap_servers, topic, data):
     producer = Producer({'bootstrap.servers': bootstrap_servers})
 
     for _, row in data.iterrows():
-        # Convert each row to a string and send it to the Kafka topic
+        print(f"Row '{row.name}' sent'")
         producer.produce(topic, key=str(row.name), value=str(row))
 
     producer.flush()
