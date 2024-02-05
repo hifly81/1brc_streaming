@@ -22,7 +22,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - ✴️ Implement a solution with _kafka APIs, kafka streams, flink, ksql, spark, NiFi, camel-kafka, spring-kafka..._ reading input data from _measurements_ topic and sink results to _results_ topics. and **run it!**. ⚠️ This is not limited to JAVA!
 - Ingest data into a kafka topic:
     - Create csv file with script _create_measurements.sh_ from this repository. Reserve approximately 14GB for it. ⚠️ This will take minutes to end.
-    -  Each row is one measurement in the format _<string: station name>;<double: measurement>_, with the measurement value having exactly one fractional digit.
+    -  Each row is one measurement in the format _<string: station name>,<double: measurement>_, with the measurement value having exactly one fractional digit.
   ```
   Austin,25.6
   Jacksonville,29.7
@@ -36,10 +36,10 @@ https://www.morling.dev/blog/one-billion-row-challenge/
     - There are only **46 different cities** with locale **US**
     - Read from csv file AND send continuously data to _measurements_ topic using the script _producer.sh_ from this repository
 - Output topic must contain messages with key/value and no additional headers:
-  - **Key**: name of the city, example _Rome_ - format: _String_
+  - **Key**: name of the city, example _Austin_ - format: _String_
   - **Value**: _avg/max/min_ temperature, example _16/38/4_ - format _String_
   - Expected to have only **46 different messages**
-- Validate results using consumer application and run script _verification.sh_ from this repository. Result being driven by difference between timestamp of the first/last produced message in the input and validation timestamp of the final consumer.
+- Validate running script _verification.sh_ from this repository. Result being driven by difference between timestamp of the first/last produced message in the input and validation timestamp of the final consumer.
 
 💡 Kafka Cluster runs [cp-kafka](https://hub.docker.com/r/confluentinc/cp-kafka), Official Confluent Docker Image for Kafka (Community Version) version 7.5.3, shipping Apache Kafka version 3.5.x
 
