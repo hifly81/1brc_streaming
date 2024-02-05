@@ -43,3 +43,5 @@ README.html
 release/
 
 .DS_Store
+
+*.csv
