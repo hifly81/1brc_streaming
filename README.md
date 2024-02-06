@@ -41,12 +41,17 @@ https://www.morling.dev/blog/one-billion-row-challenge/
   - Expected to have only **46 different messages**
 - Validate running script _verification.sh_ from this repository. Result being driven by difference between timestamp of the first/last produced message in the input and validation timestamp of the final consumer.
 
+💡 Verify csv file with:
+```
+  md5sum measurements.csv
+  6661c8869af306e38e49224ecd0d635a
+```
 💡 Kafka Cluster runs [cp-kafka](https://hub.docker.com/r/confluentinc/cp-kafka), Official Confluent Docker Image for Kafka (Community Version) version 7.5.3, shipping Apache Kafka version 3.5.x
 
 
 ## How to test the challenge
 
-1. Run script _create_measurements.sh_ to create 1B csv file
+1. Run script _create_measurements.sh_ to create 1B csv file. Verify it with:
 2. Run script _bootstrap.sh_ to setup a Kafka clusters and required topics. 
 3. Deploy your solution and run it, publishing data to _results_ topic. 
 4. Run script _verification.sh_ in a new terminal 
