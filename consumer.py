@@ -2,7 +2,7 @@ from confluent_kafka import Consumer, KafkaError
 
 bootstrap_servers = 'kafka1:9092,kafka2:9093,kafka3:9094'
 
-topic = 'measurements'
+topic = 'results'
 
 group_id = 'sample_measurements_consumer_group_id'
 

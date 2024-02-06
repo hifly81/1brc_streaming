@@ -68,3 +68,9 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 3. Open a Pull Request detailing your solution with instructions on how to deploy it
 
 ✅ Your solution will be tested using the same _docker-compose_ file. Results will be published on this page.
+
+💡 A sample implementation is present in folder _challenge_ with Kafka Streams. Test it with:
+```
+cd challenge
+mvn clean compile && mvn exec:java -Dexec.mainClass="io.hifly.onebrcstreaming.TemperatureAggregator"
+```

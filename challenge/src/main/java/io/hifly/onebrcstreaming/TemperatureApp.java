@@ -75,19 +75,13 @@ public class TemperatureApp {
             public DoubleSummaryStatistics deserialize(String topic, byte[] data) {
                 String str = new String(data);
                 String[] parts = str.split(",");
-                if(parts != null && parts.length >= 4) {
-                    System.out.println(parts[0]);
-                    System.out.println(parts[1]);
-                    System.out.println(parts[2]);
-                    System.out.println(parts[3]);
-                    double sum = Double.parseDouble(parts[0].split("=")[1]);
-                    long count = Long.parseLong(parts[1].split("=")[1]);
-                    double min = Double.parseDouble(parts[2].split("=")[1]);
-                    double max = Double.parseDouble(parts[3].split("=")[1]);
-                    return new DoubleSummaryStatistics(count, min, max, sum);
-                } else {
-                    return new DoubleSummaryStatistics(0, 0, 0, 0);
-                }
+
+                long count = Long.parseLong(parts[0].split("=")[1]);
+                double sum = Double.parseDouble(parts[1].split("=")[1]);
+                double min = Double.parseDouble(parts[3].split("=")[1]);
+                double max = Double.parseDouble(parts[7].split("=")[1]);
+                return new DoubleSummaryStatistics(count, min, max, sum);
+
             }
         }
     }
