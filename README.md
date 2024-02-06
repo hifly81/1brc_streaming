@@ -37,7 +37,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
     - Read from csv file AND send continuously data to _measurements_ topic using the script _producer.sh_ from this repository
 - Output topic must contain messages with key/value and no additional headers:
   - **Key**: name of the city, example _Austin_ - format: _String_
-  - **Value**: _avg/max/min_ temperature, example _16/38/4_ - format _String_
+  - **Value**: _avg/min/max_ temperature, example _16/4/38_ - format _String_
   - Expected to have only **46 different messages**
 - Validate running script _verification.sh_ from this repository. Result being driven by difference between timestamp of the first/last produced message in the input and validation timestamp of the final consumer.
 

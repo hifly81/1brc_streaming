@@ -33,9 +33,9 @@ public class TemperatureApp {
                         Materialized.with(Serdes.String(), new DoubleSummaryStatisticsSerde())
                 );
 
-        // Calculate min, max, and average temperatures
+        // Calculate  average, min and max
         KTable<String, String> resultTable = aggregatedTable.mapValues(stats ->
-                "Min: " + stats.getMin() + ", Max: " + stats.getMax() + ", Avg: " + stats.getAverage());
+                stats.getAverage()+"/"+stats.getMin()+"/"+stats.getMax());
 
         resultTable.toStream().to("results", Produced.with(Serdes.String(), Serdes.String()));
 
