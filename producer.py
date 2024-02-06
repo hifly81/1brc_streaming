@@ -42,6 +42,7 @@ def sendToKafka(chunk, producer, topic):
         producer.produce(topic, key=str(row[0]), value=str(row[1]), callback=acked)
         producer.poll(0)
     producer.flush()
+    
 def acked(err, msg):
     if err is not None:
         print("Failed to deliver message: %s: %s" % (str(msg), str(err)))
