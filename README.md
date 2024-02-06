@@ -48,6 +48,8 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 ```
 💡 Kafka Cluster runs [cp-kafka](https://hub.docker.com/r/confluentinc/cp-kafka), Official Confluent Docker Image for Kafka (Community Version) version 7.5.3, shipping Apache Kafka version 3.5.x
 
+💡 Verify messages published into _measurements_ topic with _consumer.sh_ script.
+
 
 ## How to test the challenge
 
