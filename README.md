@@ -9,7 +9,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 
 - _docker engine_ and _docker compose_
 - about 30GB free space
-- 🐍 _python 3.x_ - Needed in script _create_measurements.sh_ and _producer.sh_.
+- 🐍 _python 3.x_ - Needed in script _measurements.sh_ and _producer.sh_.
 
 
 ## Rules
@@ -21,7 +21,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Brokers will listen on port 9092, 9093 and 9094. No Authentication, no SSL.
 - ✴️ Implement a solution with _kafka APIs, kafka streams, flink, ksql, spark, NiFi, camel-kafka, spring-kafka..._ reading input data from _measurements_ topic and sink results to _results_ topics. and **run it!**. ⚠️ This is not limited to JAVA!
 - Ingest data into a kafka topic:
-    - Create csv file with script _create_measurements.sh_ from this repository. Reserve approximately 14GB for it. ⚠️ This will take minutes to end.
+    - Create csv file with script _measurements.sh_ from this repository. Reserve approximately 14GB for it. ⚠️ This will take minutes to end.
     -  Each row is one measurement in the format _<string: station name>,<double: measurement>_, with the measurement value having exactly one fractional digit.
   ```
   Austin,25.6
@@ -51,7 +51,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 
 ## How to test the challenge
 
-1. Run script _create_measurements.sh_ to create 1B csv file. Verify it with:
+1. Run script _measurements.sh_ to create 1B csv file. Verify it with:
 2. Run script _bootstrap.sh_ to setup a Kafka clusters and required topics. 
 3. Deploy your solution and run it, publishing data to _results_ topic. 
 4. Run script _verification.sh_ in a new terminal 
