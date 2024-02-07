@@ -1,30 +1,29 @@
 # 1brc challenge with streaming solutions for Apache Kafka
 
-Inspired by original 1brc challenge:
+Inspired by original 1brc challenge created by Gunnar Morling:
 https://www.morling.dev/blog/one-billion-row-challenge/
 
 ⚠️ This challenge does not aim to be competitive with the original challenge. It is a challenge dedicated to streaming technologies that integrate with Apache Kafka. Results will be evaluated taking in consideration complete different measures.
 
 ## Pre requirements
 
-- _docker engine_ and _docker compose_
+- docker engine and docker compose
 - about 30GB free space
 - challenge will run on these supported architectures only:
   - Linux - x86_64
   - Darwin (Mac) - x86_64 and arm 
   - Windows
 
-
 ## Rules
 
 - Kafka cluster with only **3 brokers**. Cluster must be local only. Reserve approximately 30GB for data.
-- Topic with _32 partitions_, _replication factor 3_ and _LogAppendTime_ named _measurements_ for input
-- Topic with _32 partitions_, _replication factor 3_ named _results_ for output
+- Topic with **32 partitions**, **replication factor 3** and **LogAppendTime** named **measurements** for input
+- Topic with **32 partitions**, **replication factor 3** named **results** for output
 - Kafka cluster must run using the script _run/bootstrap.sh_ from this repository. bootstrap will also create input and output topics.
 - Brokers will listen on port 9092, 9093 and 9094. No Authentication, no SSL.
-- ✴️ Implement a solution with _kafka APIs, kafka streams, flink, ksql, spark, NiFi, camel-kafka, spring-kafka..._ reading input data from _measurements_ topic and sink results to _results_ topics. and **run it!**. ⚠️ This is not limited to JAVA!
+- Implement a solution with _kafka APIs, kafka streams, flink, ksql, spark, NiFi, camel-kafka, spring-kafka..._ reading input data from _measurements_ topic and sink results to _results_ topics. and **run it!**. This is not limited to JAVA!
 - Ingest data into a kafka topic:
-    - Create csv file with script _run/measurements.sh_ or _run/measurements.exe_ from this repository. Reserve approximately 14GB for it. ⚠️ This will take minutes to end.
+    - Create csv file with script _run/measurements.sh_ or _run/measurements.exe_ from this repository. Reserve approximately 14GB for it. This will take minutes to end.
     -  Each row is one measurement in the format _<string: station name>,<double: measurement>_, with the measurement value having exactly one fractional digit.
   ```
   Miami,28.1
@@ -36,9 +35,9 @@ https://www.morling.dev/blog/one-billion-row-challenge/
   Tucson,5.8
   ..........
   ```
-    - There are only **46 different cities** with locale **US**
+    - There are only **46 different cities**
     - Temperature value: not null double between 0 (inclusive) and 40 (inclusive), always with one fractional digit
-    - Read from csv file AND send continuously data to _measurements_ topic using the script _producer.sh_ from this repository
+    - Read from csv file AND send continuously data to _measurements_ topic using the script _run/producer.sh_ from this repository
 - Output topic must contain messages with key/value and no additional headers:
   - **Key**: name of the city, example _Austin_ - format: _String_
   - **Value**: _avg/min/max_ temperature, example _16/4/38_ - format _String_
