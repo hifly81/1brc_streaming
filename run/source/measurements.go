@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
-	"time"
 )
 
 // List of 46 cities
@@ -48,7 +47,7 @@ func main() {
 
 	for i := 0; i < n; i++ {
 		city := cities[rand.Intn(numCities)]
-		randomValue := fmt.Sprintf("%.1f", randomDouble()) 
+		randomValue := fmt.Sprintf("%.1f", randomDouble())
 		writer.Write([]string{city, randomValue})
 	}
 
