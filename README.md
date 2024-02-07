@@ -33,18 +33,16 @@ https://www.morling.dev/blog/one-billion-row-challenge/
   ..........
   ```
     - There are only **46 different cities** with locale **US**
+    - Temperature value: not null double between 0 (inclusive) and 40 (inclusive), always with one fractional digit
     - Read from csv file AND send continuously data to _measurements_ topic using the script _producer.sh_ from this repository
 - Output topic must contain messages with key/value and no additional headers:
   - **Key**: name of the city, example _Austin_ - format: _String_
   - **Value**: _avg/min/max_ temperature, example _16/4/38_ - format _String_
   - Expected to have only **46 different messages**
+  - The rounding of output values must be done using the semantics of IEEE 754 rounding-direction "roundTowardPositive"
 - Validate running script _run/verification.sh_ from this repository. Result being driven by difference between timestamp of the first/last produced message in the input and validation timestamp of the final consumer.
 
-💡 Verify csv file with:
-```
-  md5sum measurements.csv
-  df6fa27b4976dcee04856105416a1f77
-```
+
 💡 Kafka Cluster runs [cp-kafka](https://hub.docker.com/r/confluentinc/cp-kafka), Official Confluent Docker Image for Kafka (Community Version) version 7.5.3, shipping Apache Kafka version 3.5.x
 
 💡 Verify messages published into _measurements_ topic with _run/consumer.sh_ script.
