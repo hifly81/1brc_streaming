@@ -24,7 +24,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Brokers will listen on port 9092, 9093 and 9094. No Authentication, no SSL.
 - ✴️ Implement a solution with _kafka APIs, kafka streams, flink, ksql, spark, NiFi, camel-kafka, spring-kafka..._ reading input data from _measurements_ topic and sink results to _results_ topics. and **run it!**. ⚠️ This is not limited to JAVA!
 - Ingest data into a kafka topic:
-    - Create csv file with script _run/measurements.sh_ or _run/win/measurements.exe_ from this repository. Reserve approximately 14GB for it. ⚠️ This will take minutes to end.
+    - Create csv file with script _run/measurements.sh_ or _run/measurements.exe_ from this repository. Reserve approximately 14GB for it. ⚠️ This will take minutes to end.
     -  Each row is one measurement in the format _<string: station name>,<double: measurement>_, with the measurement value having exactly one fractional digit.
   ```
   Miami,28.1
@@ -54,7 +54,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 
 ## How to test the challenge
 
-1. Run script _run/measurements.sh_ or _run/win/measurements.exe_ to create 1B csv file. Verify it with:
+1. Run script _run/measurements.sh_ or _run/measurements.exe_ to create 1B csv file. Verify it with:
 2. Run script _run/bootstrap.sh_ to setup a Kafka clusters and required topics. 
 3. Deploy your solution and run it, publishing data to _results_ topic. 
 4. Run script _run/verification.sh_ in a new terminal 
