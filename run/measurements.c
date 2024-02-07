@@ -15,7 +15,7 @@ const char* cities[] = {
 #define NUM_CITIES 46
 
 double random_double() {
-    return (double)(rand() % 1000) / 10.0;
+    return (double)(rand() % 401) / 10.0;
 }
 
 int main() {
@@ -26,7 +26,7 @@ int main() {
     FILE *fp;
     fp = fopen("measurements.csv", "w");
 
-    srand(time(NULL));
+    srand(123);
 
     for (int i = 0; i < n; ++i) {
         int city_index = rand() % NUM_CITIES;
