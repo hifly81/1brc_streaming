@@ -9,4 +9,4 @@ fi
 
 pip3 install confluent_kafka
 
-python3 consumer.py
+python3 source/consumer.py
