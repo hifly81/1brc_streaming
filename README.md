@@ -69,6 +69,8 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 
 ✅ Your solution will be tested using the same _docker-compose_ file. Results will be published on this page.
 
+💻 Solutions will be tested on a (TODO) server
+
 💡 A sample implementation is present in folder _challenge_ with Kafka Streams. Test it with:
 ```
 cd challenge
