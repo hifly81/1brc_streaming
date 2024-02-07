@@ -9,7 +9,6 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 
 - _docker engine_ and _docker compose_
 - about 30GB free space
-- 🐍 _python 3.x_ - Needed in script _producer.sh_.
 
 
 ## Rules
