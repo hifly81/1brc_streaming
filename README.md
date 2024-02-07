@@ -53,7 +53,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 
 ## How to test the challenge
 
-1. Run script _run/measurements.sh_ or _run/measurements.exe_ to create 1B csv file. Verify it with:
+1. Run script _run/measurements.sh_ or _run/measurements.exe_ to create 1B csv file.
 2. Run script _run/bootstrap.sh_ to setup a Kafka clusters and required topics. 
 3. Deploy your solution and run it, publishing data to _results_ topic. 
 4. Run script _run/verification.sh_ in a new terminal 
@@ -72,5 +72,5 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 💡 A sample implementation is present in folder _challenge_ with Kafka Streams. Test it with:
 ```
 cd challenge
-mvn clean compile && mvn exec:java -Dexec.mainClass="io.hifly.onebrcstreaming.TemperatureAggregator"
+mvn clean compile && mvn exec:java -Dexec.mainClass="io.hifly.onebrcstreaming.TemperatureApp"
 ```
