@@ -23,7 +23,6 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Brokers will listen on port 9092, 9093 and 9094. No Authentication, no SSL.
 - Implement a solution with _kafka APIs, kafka streams, flink, ksql, spark, NiFi, camel-kafka, spring-kafka..._ reading input data from _measurements_ topic and sink results to _results_ topics. and **run it!**. This is not limited to JAVA!
 - Ingest data into a kafka topic:
-<<<<<<< HEAD
     - Create csv file with script _run/measurements.sh_ or _run/measurements.exe_ from this repository. Reserve approximately 14GB for it. This will take minutes to end.
     -  Each row is one measurement in the format _<string: station name>;<double: measurement>_, with the measurement value having exactly one fractional digit.
   ```
