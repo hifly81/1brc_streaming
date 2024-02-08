@@ -23,25 +23,27 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 - Brokers will listen on port 9092, 9093 and 9094. No Authentication, no SSL.
 - Implement a solution with _kafka APIs, kafka streams, flink, ksql, spark, NiFi, camel-kafka, spring-kafka..._ reading input data from _measurements_ topic and sink results to _results_ topics. and **run it!**. This is not limited to JAVA!
 - Ingest data into a kafka topic:
+<<<<<<< HEAD
     - Create csv file with script _run/measurements.sh_ or _run/measurements.exe_ from this repository. Reserve approximately 14GB for it. This will take minutes to end.
-    -  Each row is one measurement in the format _<string: station name>,<double: measurement>_, with the measurement value having exactly one fractional digit.
+    -  Each row is one measurement in the format _<string: station name>;<double: measurement>_, with the measurement value having exactly one fractional digit.
   ```
-  Miami,28.1
-  Dallas,38.1
-  Austin,18.3
-  Chicago,10.4
-  San Diego,24.3
-  Cleveland,26.5
-  Tucson,5.8
+  Miami;28.1
+  Dallas;38.1
+  Austin;18.3
+  Chicago;10.4
+  San Diego;24.3
+  Cleveland;26.5
+  Tucson;5.8
   ..........
   ```
-    - There are only **46 different cities**
-    - Temperature value: not null double between 0 (inclusive) and 40 (inclusive), always with one fractional digit
-    - Read from csv file AND send continuously data to _measurements_ topic using the script _run/producer.sh_ from this repository
+
+    - There are **913 different cities** 
+    - Temperature value: not null double between -40.0 (inclusive) and 40.0 (inclusive), always with one fractional digit
+    - Read from csv file AND send continuously data to _measurements_ topic using the script _producer.sh_ from this repository
 - Output topic must contain messages with key/value and no additional headers:
   - **Key**: name of the city, example _Austin_ - format: _String_
   - **Value**: _avg/min/max_ temperature, example _16/4/38_ - format _String_
-  - Expected to have only **46 different messages**
+  - Expected to have **913 different messages**
   - The rounding of output values must be done using the semantics of IEEE 754 rounding-direction "roundTowardPositive"
 - Validate running script _run/verification.sh_ from this repository. Result being driven by difference between timestamp of the first/last produced message in the input and validation timestamp of the final consumer.
 
@@ -51,7 +53,6 @@ https://www.morling.dev/blog/one-billion-row-challenge/
 💡 Verify messages published into _measurements_ topic with _run/consumer.sh_ script.
 
 
-## How to test the challenge
 
 1. Run script _run/measurements.sh_ or _run/measurements.exe_ to create 1B csv file.
 2. Run script _run/bootstrap.sh_ to setup a Kafka clusters and required topics. 
