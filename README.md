@@ -1,5 +1,7 @@
 # 1brc challenge with streaming solutions for Apache Kafka
 
+* This is still a WIP project *
+
 Inspired by original 1brc challenge created by Gunnar Morling:
 https://www.morling.dev/blog/one-billion-row-challenge/
 
@@ -44,7 +46,7 @@ https://www.morling.dev/blog/one-billion-row-challenge/
   - **Value**: _avg/min/max_ temperature, example _16/4/38_ - format _String_
   - Expected to have **913 different messages**
   - The rounding of output values must be done using the semantics of IEEE 754 rounding-direction "roundTowardPositive"
-- Validate running script _run/verification.sh_ from this repository. Result being driven by difference between timestamp of the first/last produced message in the input and validation timestamp of the final consumer.
+- Validate running script _run/verification.sh_ from this repository.
 
 
 💡 Kafka Cluster runs [cp-kafka](https://hub.docker.com/r/confluentinc/cp-kafka), Official Confluent Docker Image for Kafka (Community Version) version 7.5.3, shipping Apache Kafka version 3.5.x
