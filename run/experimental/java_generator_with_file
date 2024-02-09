@@ -1,0 +1,51 @@
+#! /usr/bin/java  --class-path ./kafka_2.13-3.6.1/libs/* --source 17
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Properties;
+import java.util.concurrent.ExecutionException;
+
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+
+import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.stream.Stream;
+
+class App {
+    public static String fileName = "../measurements.csv";
+
+    public static void main(String[] args) throws Exception {
+        // Measure time to produce 1 billion records
+        long start = System.currentTimeMillis();
+        System.out.println("Generating data...");
+
+        // create a new instance of the KafkaProducer
+        Properties props = new Properties();
+        props.put("bootstrap.servers", "localhost:9092");
+        props.put("acks", "1");
+        props.put("batch.size", Integer.toString(16384 * 10));
+        props.put("linger.ms", 100);
+        props.put("compression.type", "lz4");
+        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        KafkaProducer<String, String> producer = new KafkaProducer<>(props);
+
+        try (Stream<String> lines = java.nio.file.Files.lines(Paths.get(fileName))) {
+            lines.forEach(line -> {
+                // send the record to the topic
+                String[] keyValue = line.split(",");
+                producer.send(new ProducerRecord<>("test", keyValue[0], keyValue[1]));
+            });
+        }
+
+        producer.flush();
+        producer.close();
+
+        long end = System.currentTimeMillis();
+        String output = String.format("Time to produce 1 billion records: %f seconds", (end - start) / 1000.0);
+        System.out.println(output);
+    }
+}
