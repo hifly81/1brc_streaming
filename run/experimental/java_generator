@@ -75,9 +75,10 @@ class App {
             // send the record to the topic
             producer.send(new ProducerRecord<>("test", city, temperature));
 
-            // flush and close producer
-            producer.flush();
-            producer.close();
+            if (i % 10000 == 0) {
+                producer.flush();
+
         }
+        producer.close();
     }
 }
