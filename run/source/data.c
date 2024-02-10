@@ -4,7 +4,7 @@
 #include <string.h>
 
 #define NUM_ROWS 1000000000 // 1 billion rows
-#define ORDER_ID_LEN 10
+#define ORDER_ID_LEN 5
 #define MAX_PRICE 50000
 #define NUM_CUSTOMERS 999
 #define ENTRY_LENGTH 9
@@ -30,7 +30,7 @@ int main() {
     char entries[NUM_CUSTOMERS][ENTRY_LENGTH];
 
     for (int i = 0; i < NUM_CUSTOMERS; i++) {
-        snprintf(entries[i], ENTRY_LENGTH, "ID00%03d", i + 1);
+        snprintf(entries[i], ENTRY_LENGTH, "ID%03d", i + 1);
     }
 
     for (int i = 0; i < NUM_ROWS; ++i) {
