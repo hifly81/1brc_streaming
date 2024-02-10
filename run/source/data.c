@@ -34,7 +34,7 @@ int main() {
     }
 
     for (int i = 0; i < NUM_ROWS; ++i) {
-        const char *customer_id = entries[rand() % 1000];
+        const char *customer_id = entries[rand() % NUM_CUSTOMERS];
 
         char order_id[ORDER_ID_LEN + 1];
         for (int j = 0; j < ORDER_ID_LEN; ++j) {

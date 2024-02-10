@@ -48,7 +48,9 @@ https://www.morling.dev/blog/one-billion-row-challenge
 
 💡 Kafka Cluster runs [cp-kafka](https://hub.docker.com/r/confluentinc/cp-kafka), Official Confluent Docker Image for Kafka (Community Version) version 7.5.3, shipping Apache Kafka version 3.5.x
 
-💡 Verify messages published into _data_ topic with _run/consumer.sh_ script.
+💡 Verify messages published into _data_ topic with _run/consumer.sh_ script using
+https://raw.githubusercontent.com/confluentinc/librdkafka/master/examples/consumer.c.
+Tu run the consumer, verify that you have installed [librdkafka](https://github.com/confluentinc/librdkafka/tree/master?tab=readme-ov-file#installing-prebuilt-packages)
 
 ## How to test the challenge
 
