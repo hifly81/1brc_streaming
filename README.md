@@ -1,6 +1,6 @@
 # 1brc challenge with streaming solutions for Apache Kafka
 
-* This is still a WIP project *
+**This is still a WIP project**
 
 Inspired by original 1brc challenge created by Gunnar Morling:
 https://www.morling.dev/blog/one-billion-row-challenge/
@@ -38,13 +38,13 @@ https://www.morling.dev/blog/one-billion-row-challenge/
   ..........
   ```
 
-    - There are **913 different cities** 
-    - Temperature value: not null double between -40.0 (inclusive) and 40.0 (inclusive), always with one fractional digit
+    - There are **413 different cities** 
+    - Temperature value: not null double between -50.0 (inclusive) and 50.0 (inclusive), always with one fractional digit
     - Read from csv file AND send continuously data to _measurements_ topic using the script _producer.sh_ from this repository
 - Output topic must contain messages with key/value and no additional headers:
   - **Key**: name of the city, example _Austin_ - format: _String_
   - **Value**: _avg/min/max_ temperature, example _16/4/38_ - format _String_
-  - Expected to have **913 different messages**
+  - Expected to have **413 different messages**
   - The rounding of output values must be done using the semantics of IEEE 754 rounding-direction "roundTowardPositive"
 - Validate running script _run/verification.sh_ from this repository.
 
