@@ -46,7 +46,7 @@ https://www.morling.dev/blog/one-billion-row-challenge
   - Expected to have **999 different messages**
 
 
-💡 Kafka Cluster runs [cp-kafka](https://hub.docker.com/r/confluentinc/cp-kafka), Official Confluent Docker Image for Kafka (Community Version) version 7.5.3, shipping Apache Kafka version 3.5.x
+💡 Kafka Cluster runs [cp-kafka](https://hub.docker.com/r/confluentinc/cp-kafka), Official Confluent Docker Image for Kafka (Community Version) version 7.6.0, shipping Apache Kafka version 3.6.x
 
 💡 Verify messages published into _data_ topic with _run/consumer.sh_ script using
 https://raw.githubusercontent.com/confluentinc/librdkafka/master/examples/consumer.c.

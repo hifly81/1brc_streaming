@@ -1,7 +1,7 @@
 version: "3"
 services:
   kafka1:
-    image: confluentinc/cp-kafka:7.5.3
+    image: confluentinc/cp-kafka:7.6.0
     hostname: kafka1
     container_name: kafka1
     ports:
@@ -26,7 +26,7 @@ services:
       CLUSTER_ID: "9apCDWinSSO_DuT_GJVsFw"
 
   kafka2:
-    image: confluentinc/cp-kafka:7.5.3
+    image: confluentinc/cp-kafka:7.6.0
     hostname: kafka2
     container_name: kafka2
     ports:
@@ -51,7 +51,7 @@ services:
       CLUSTER_ID: "9apCDWinSSO_DuT_GJVsFw"
 
   kafka3:
-    image: confluentinc/cp-kafka:7.5.3
+    image: confluentinc/cp-kafka:7.6.0
     hostname: kafka3
     container_name: kafka3
     ports:
