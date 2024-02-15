@@ -7,8 +7,6 @@ chmod +x ./linux/data_x86_64
 # get the architecture of the system
 arch=$(uname -m)
 
-echo -e "Generate CSV file. Please wait..."
-
 if [[ $(uname) == "Darwin" ]]; then
     if [ "$arch" == "x86_64" ]; then
         ./darwin/data_x86_64

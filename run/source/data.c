@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include<time.h>
 
 #define CHUNK_SIZE 100000000 // Number of rows per chunk
 #define TOTAL_ROWS 1000000000 // Total number of rows
@@ -34,6 +35,10 @@ int main() {
     char filename[20];
     int i, j;
 
+    time_t start;
+    time(&start);
+    printf("\nCSV files generate started at: %s", ctime(&start));
+
     for (j = 0; j < 10; j++) {
         sprintf(filename, "data_%d.csv", j+1);
         file = fopen(filename, "w");
@@ -42,6 +47,8 @@ int main() {
             printf("Error opening file.\n");
             return 1;
         }
+
+        printf("Writing on file %s\n", filename);
 
         for (i = j * CHUNK_SIZE + 1; i <= (j + 1) * CHUNK_SIZE; i++) {
             const char *customer_id = entries[rand() % NUM_CUSTOMERS];
@@ -60,7 +67,9 @@ int main() {
         fclose(file);
     }
 
-    printf("CSV file generated successfully.\n");
+    time_t end;
+    time(&end);
+    printf("\nCSV files generate ended at: %s", ctime(&end));
 
     return 0;
 }

@@ -28,7 +28,7 @@ https://www.morling.dev/blog/one-billion-row-challenge
 
 - Implement a solution with _kafka APIs, kafka streams, flink, ksql, spark, NiFi, camel-kafka, spring-kafka..._ reading input data from _data_ topic and sink results to _results_ topics. and **run it!**. This is not limited to JAVA!
 - Ingest data into a kafka topic:
-    - Create a 10 csv files using script _run/data.sh_ or _run/windows/data.exe_ from this repository. Reserve approximately 19GB for it. This will take minutes to end.
+    - Create 10 csv files using script _run/data.sh_ or _run/windows/data.exe_ from this repository. Reserve approximately 19GB for it. This will take minutes to end.
     -  Each row is one data in the format _<string: customer id>;<string: order id>;<double: price in EUR>_, with the price value having exactly 2 fractional digits.
   ```
   ID672;IQRWG;363.81
@@ -54,7 +54,7 @@ Tu run the consumer, verify that you have installed [librdkafka](https://github.
 
 ## How to test the challenge
 
-1. Run script _run/data.sh_ or _run/windows/data.exe_ to create 1B split in 10 csv files.
+1. Run script _run/data.sh_ or _run/windows/data.exe_ to create 1B rows split in 10 csv files.
 2. Run script _run/bootstrap.sh_ to setup a Kafka clusters and required topics. 
 3. Deploy your solution and run it, publishing data to _results_ topic.
 4. Run script _run/producer.sh_ in a new terminal. Producer will read from input file and publish to _measurements_ topic.

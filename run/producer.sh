@@ -14,20 +14,15 @@ if [ ! -d $KAFKA_DIR ]; then
     rm kafka_2.13-$KAFKA_VERSION.tgz
 fi
 
-# Split data.csv file in smaller files
-echo -e "Split data.csv in smaller files..."
 rm -rf files
 mkdir -p files
-mv ../data.csv files
-cd files || exit
-split -l 100000000 -d data.csv splitted
-mv data.csv ../..
-cd ..
+mv ../data_*.csv files
 
 # run java program
 echo -e "Run producer..."
 ./producer
 
+mv files/data_*.csv ../
 rm -fr $KAFKA_DIR
 rm -rf files
 pkill -9 java

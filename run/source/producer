@@ -33,6 +33,7 @@ class App {
         KafkaProducer<byte[], byte[]> producer = new KafkaProducer<>(props);
 
         List<File> files = Files.walk(Paths.get(path)).toList().stream().filter(Files::isRegularFile).map(Path::toFile).toList();
+        System.out.println("Number of files:" +  files.size());
         files.parallelStream().forEach(
                 file -> {
                     try (Stream<String> lines = java.nio.file.Files.lines(Paths.get(file.getAbsolutePath()))) {
