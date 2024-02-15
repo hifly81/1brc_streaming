@@ -1,0 +1,64 @@
+#! /usr/bin/java  --class-path ./kafka_2.13-3.6.1/libs/* --source 17 -XX:ActiveProcessorCount=4
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Properties;
+
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+
+import java.util.stream.Stream;
+
+class App {
+    public static String path = "files";
+    public static String topic = "data";
+
+    public static void main(String[] args) throws Exception {
+        // Measure time to produce 1 billion records
+        long start = System.currentTimeMillis();
+        System.out.println("Producing...");
+
+        // create a new instance of the KafkaProducer
+        Properties props = new Properties();
+        props.put("bootstrap.servers", "localhost:9092");
+        props.put("batch.size", Integer.toString(16384 * 10));
+        props.put("linger.ms", 500);
+        props.put("key.serializer", "org.apache.kafka.common.serialization.ByteArraySerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.ByteArraySerializer");
+        KafkaProducer<byte[], byte[]> producer = new KafkaProducer<>(props);
+
+        List<File> files = Files.walk(Paths.get(path)).toList().stream().filter(Files::isRegularFile).map(Path::toFile).toList();
+        files.parallelStream().forEach(
+                file -> {
+                    try (Stream<String> lines = java.nio.file.Files.lines(Paths.get(file.getAbsolutePath()))) {
+                        // print thread id
+                        System.out.println("Thread ID: " + Thread.currentThread().getId() + " Processing file: " + file.getName());
+                        lines.forEach(line -> {
+                            // send the record to the topic
+                            String[] keyValue = line.split(";");
+                            if (keyValue.length >= 2) {
+                                producer.send(new ProducerRecord<>(topic, keyValue[0].getBytes(StandardCharsets.UTF_8), line.getBytes(StandardCharsets.UTF_8)));
+                            }
+                        });
+
+                    } catch (IOException e) {
+                        System.out.print("ERROR: " + e.getMessage());
+                    }
+
+                    producer.flush();
+                }
+        );
+
+        producer.flush();
+        producer.close();
+
+        long end = System.currentTimeMillis();
+        String output = String.format("Time to produce: %f seconds", (end - start) / 1000.0);
+        System.out.println(output);
+    }
+}

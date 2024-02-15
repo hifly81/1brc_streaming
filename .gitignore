@@ -45,3 +45,5 @@ release/
 .DS_Store
 
 *.csv
+run/producer/files
+run/producer/kafka*
