@@ -57,7 +57,7 @@ Tu run the consumer, verify that you have installed [librdkafka](https://github.
 1. Run script _run/data.sh_ or _run/windows/data.exe_ to create 1B rows split in 10 csv files.
 2. Run script _run/bootstrap.sh_ to setup a Kafka clusters and required topics. 
 3. Deploy your solution and run it, publishing data to _results_ topic.
-4. Run script _run/producer.sh_ in a new terminal. Producer will read from input file and publish to _measurements_ topic.
+4. Run script _run/producer.sh_ in a new terminal. Producer will read from input files and publish to _data_ topic.
 
 At the end clean up with script _run/tear-down.sh_
 
