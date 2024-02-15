@@ -12,7 +12,7 @@ public class SampleApp {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put(StreamsConfig.APPLICATION_ID_CONFIG, "app-aggregator");
+        props.put(StreamsConfig.APPLICATION_ID_CONFIG, "producer-aggregator");
         props.put(StreamsConfig.STATE_DIR_CONFIG, "/tmp/rocksdb");
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka1:9092,kafka2:9093,kafka3:9094");
         props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
