@@ -42,7 +42,7 @@ https://www.morling.dev/blog/one-billion-row-challenge
     - Read from csv files AND send continuously data to _data_ topic using the script _producer.sh_ from this repository
 - Output topic must contain messages with key/value and no additional headers:
   - **Key**: customer id, example _ID672_ 
-  - **Value**: order counts/order counts_with_price > 40000/min price/max price, example _1212/78/4.22/48812.22_ 
+  - **Value**: order counts | order counts_with_price > 40000 | min price | max price, example _1212 | 78 | 4.22 | 48812.22_ 
   - Expected to have **999 different messages**
 
 
