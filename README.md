@@ -18,7 +18,7 @@ https://www.morling.dev/blog/one-billion-row-challenge
 
 ## Simulation Environment
 
-- Kafka cluster with only **3 brokers**. Cluster must be local only. Reserve approximately XXGB for data.
+- Kafka cluster with **3 brokers**. Cluster must be local only. Reserve approximately XXGB for data.
 - Topic with **32 partitions**, **replication factor 3** and **LogAppendTime** named **data** for input
 - Topic with **32 partitions**, **replication factor 3** named **results** for output
 - Kafka cluster must run using the script _run/bootstrap.sh_ from this repository. bootstrap will also create input and output topics.
@@ -42,7 +42,7 @@ https://www.morling.dev/blog/one-billion-row-challenge
     - Read from csv files AND send continuously data to _data_ topic using the script _producer.sh_ from this repository
 - Output topic must contain messages with key/value and no additional headers:
   - **Key**: customer id, example _ID672_ 
-  - **Value**: order counts | order counts_with_price > 40000 | min price | max price, example _1212 | 78 | 4.22 | 48812.22_ 
+  - **Value**: order counts | order counts_with_price > 40000 | min price | max price, example _1212 | 78 | 4.22 | 48812.22_ grouped by key.
   - Expected to have **999 different messages**
 
 
