@@ -7,8 +7,11 @@ echo -e "Wait 30 seconds to have cluster running..."
 
 sleep 30
 
-echo -e "Create topics [measurements, results]..."
-docker exec -it kafka1 kafka-topics --bootstrap-server localhost:9092 --create --topic data --replication-factor 3 --partitions 32 --config message.timestamp.type=LogAppendTime
-docker exec -it kafka1 kafka-topics --bootstrap-server localhost:9092 --create --topic results --replication-factor 3 --partitions 32 --config message.timestamp.type=LogAppendTime
+INPUT_TOPIC=data
+OUTPUT_TOPIC=results
+
+echo -e "Create topics [$INPUT_TOPIC, $OUTPUT_TOPIC]..."
+docker exec -it kafka1 kafka-topics --bootstrap-server localhost:9092 --create --topic $INPUT_TOPIC --replication-factor 3 --partitions 32 --config message.timestamp.type=LogAppendTime
+docker exec -it kafka1 kafka-topics --bootstrap-server localhost:9092 --create --topic $OUTPUT_TOPIC --replication-factor 3 --partitions 32 --config message.timestamp.type=LogAppendTime
 
 echo -e "Cluster ready!"
